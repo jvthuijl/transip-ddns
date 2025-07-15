@@ -3,6 +3,7 @@ Description=TransIP DDNS Updater
 After=network-online.target
 
 [Service]
+Type=oneshot
 ExecStart=/usr/local/bin/transip-ddns
 User=root
 Group=root
@@ -10,9 +11,6 @@ Environment="TRANSIP_ACCOUNT_NAME=username"
 Environment="TRANSIP_PRIVATE_KEY_PATH=/etc/transip-ddns/secrets/transip-key"
 Environment="DOMAIN=domain"
 Environment="SUBDOMAIN=subdomain"
-
-Type=oneshot
-RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
